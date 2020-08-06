@@ -10,7 +10,11 @@
 * __pgrep__ - process grep
 * __pkill__ - process kill (by name)
 * __pstree__ - process tree
-* __renice__ - change process nice value (priority)
+* __nice__ - start process with specific niceness value
+* __renice__ - change running process niceness value (priority)
+* __ulimit__ - set process resource limit for current shell
+* __crontab__ - user's crontab utility
+* __systemctl__ - systemd cli
 
 ## Filesystem
 * __df__ - disk free space
@@ -42,6 +46,7 @@
 * __grep__ - search for file content
 * __find__ - search for file name in filesystem
 * __tree__ - show filesystem tree
+* __ldd__ - show which dynamic libraries the executable binary file uses
 
 ## Backup, compress, archive
 * __rsync__ - remote sync (remote backup)
@@ -128,6 +133,8 @@
 * __HOME__ - home directory
 * __PWD__ - actual directory
 * __PS1__ - teminal head appearance
+* __PATH__ - directories which will be searched for executable files
+* __LD\_LIBRARY\_PATH__ - directories which will be searched for dynamic libraries
 
 ## Linux special files and directories
 * __/etc/sudoers__ - list of users wha can run sudo
@@ -136,6 +143,8 @@
 * __/etc/crontab__ - systemwide crontab with ability to specify user
 * __/etc/cron.allow__ - whitelist users who can install crontab
 * __/etc/group__ - list of groups
+* __/etc/ld.so.conf__ - list of directories which will be searched for dynamic libraries
+* __/etc/security/limits.conf__ - global process resource limits
 * startup file order at login (for Bash):
   1. __/etc/profile__
   1. __~/.bash\_profile__
