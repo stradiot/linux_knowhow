@@ -20,6 +20,7 @@ Feel free to contribute :)
 * __ulimit__ 	- set process resource limit for current shell
 * __crontab__ 	- user's crontab utility
 * __systemctl__ - systemd cli
+* __strace__	- monitor interactions between process and kernel (syscalls, signals and process state changes)
 
 ## Filesystem
 * __df__ 	- disk free space
@@ -34,6 +35,23 @@ Feel free to contribute :)
 * __netstat__ 	- show network info
 * __ethtool__ 	- ethernet device utility
 * __nmap__ 	- map network infrastructure
+* __tcpdump__ 	- monitor nework traffic and create pcap files
+
+## System resources
+* __free__	- brief summary of memory usage 
+* __vmstat__	- detailed virtual memory statistics and block I/O
+* __pmap__	- process memory map
+* __stress-ng__	- system stress utility (CPU, I/O and memory stress)
+
+## I/O management
+* __sar__	- system activity reporter
+* __iostat__	- I/O activity statistics
+* __iotop__	- actual I/O usage with periodic updates
+* __ionice__	- (no longer functional since kernel 5.0) set scheduling class and priority for current process
+
+## Package management
+* __dpkg__	- Debian low-level package management system
+* __apt__	- Debian high-level package management system which works with underlying DPKG 
 
 ## Security
 * __chage__ 	- password aging
@@ -63,7 +81,8 @@ Feel free to contribute :)
 * __lnsmod__ 	- install module
 * __rmmod__ 	- remove module
 * __modprobe__ 	- load module and any dependency
-* __dmesg__ 	- print boot log
+* __dmesg__ 	- print actual kernel log
+* __sysctl__	- configure kernel parameters at runtime
 
 ## Bash scripting
 * function syntax:
@@ -73,7 +92,8 @@ Feel free to contribute :)
     * by default, all variables are global (even if specified inside the function)
       * local variables are specified with __local__ keyword
     * arguments are passed with separating space, without ()
-    * arguments are accesed by __$1, $2, .., $n__, __$0__ is function name
+    * arguments are accesed by __$1, $2, ..., $n__ 
+      * __$0__ represents function name
       * __$#__ represents number of arguments
 * if statement syntax:
   * __if [[ CONDITION ]]; then COMMANDS; elif [[ CONDITION ]]; then COMMANDS; else COMMANDS; fi__
@@ -159,14 +179,26 @@ Feel free to contribute :)
 * __LD\_LIBRARY\_PATH__ - directories which will be searched for dynamic libraries
 
 ## Linux special files and directories
-* __/etc/sudoers__ 		- list of users wha can run sudo
-* __/var/spool/cron/crontabs/__ - crontab for every user stored here
-* __/etc/cron.d/__ 		- program specific crontabs
-* __/etc/crontab__ 		- systemwide crontab with ability to specify user
-* __/etc/cron.allow__ 		- whitelist users who can install crontab
-* __/etc/group__ 		- list of groups
-* __/etc/ld.so.conf__ 		- list of directories which will be searched for dynamic libraries
-* __/etc/security/limits.conf__ - global process resource limits
+* __/etc/sudoers__ 			- list of users wha can run sudo
+* __/var/spool/cron/crontabs/__ 	- crontab for every user stored here
+* __/etc/cron.d/__ 			- program specific crontabs
+* __/etc/crontab__ 			- systemwide crontab with ability to specify user
+* __/etc/cron.allow__ 			- whitelist users who can install crontab
+* __/etc/group__ 			- list of groups
+* __/etc/ld.so.conf__ 			- list of directories which will be searched for dynamic libraries
+* __/etc/security/limits.conf__ 	- global process resource limits
+* __/var/log/boot.log__			- system boot logs
+* __/var/log/dmesg__			- kernel logs saved after boot
+* __/var/log/syslog__			- important system logs
+* __/var/log/secure__			- security logs
+* __/proc/sys/__			- system tuning directory
+* __/proc/filesystems__			- list of supported filesystems
+* __/sys/__				- connected devices directory
+* __/sys/block/sda/queue/scheduler__	- read available or set I/O scheduler for disk
+* __/sys/block/sda/queue/rotational__	- whether disk is HDD or SSD
+* __/sys/block/sda/queue/iosched/__	- I/O scheduler tunables
+* __/proc/meminfo__			- detailed memory usage
+* __/proc/sys/vm/__			- virtual memory tuning
 * startup file order at login (for Bash):
   1. __/etc/profile__
   1. __~/.bash\_profile__
